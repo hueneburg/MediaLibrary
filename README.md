@@ -1,6 +1,5 @@
-# My actionhero Project
-
-*visit www.actionherojs.com for more information*
+# MediaLibrary
+MediaLibrary will be a media server like plex but with better filters.
 
 ## To install:
 (assuming you have [node](http://nodejs.org/) and NPM installed)
@@ -9,6 +8,4 @@
 
 ## To Run:
 `npm start`
-
-## To Test:
-`npm test`
+And go to localhost:8080
