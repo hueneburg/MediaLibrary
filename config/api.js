@@ -48,7 +48,7 @@ exports.default = {
         // format is {roomName: {authKey, authValue}}
         //'secureRoom': {authorized: true},
         'defaultRoom': {},
-        'anotherRoom': {},
+        'anotherRoom': {}
       }
     }
   }

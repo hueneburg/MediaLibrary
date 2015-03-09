@@ -1,7 +1,144 @@
-<a href="#" onclick="addVideos($);">Add Video Source</a><br>
-<a href="#" onclick="addPhotos($);">Add Photo Source</a><br>
-<a href="#" onclick="addMusic($);">Add Music Source</a>
+<a href="#" onclick="if (!($('#addVideos').attr('hidden') == undefined || $('#addVideos').attr('hidden') == false)) { $('#addVideos').removeAttr('hidden'); $('#addPhotos').attr('hidden', 'hidden'); $('#addMusic').attr('hidden', 'hidden') } else { $('#addVideos').attr('hidden', 'hidden') };">Add Video Source</a><br>
+<a href="#" onclick="if (!($('#addPhotos').attr('hidden') == undefined || $('#addVideos').attr('hidden') == false)) { $('#addVideos').attr('hidden', 'hidden'); $('#addPhotos').removeAttr('hidden'); $('#addMusic').attr('hidden', 'hidden') } else { $('#addPhotos').attr('hidden', 'hidden') };">Add Photo Source</a><br>
+<a href="#" onclick="if (!($('#addMusic').attr('hidden') == undefined || $('#addMusic').attr('hidden') == false)) { $('#addVideos').attr('hidden', 'hidden'); $('#addPhotos').attr('hidden', 'hidden'); $('#addMusic').removeAttr('hidden') } else { $('#addMusic').attr('hidden', 'hidden') };">Add Music Source</a>
 
-<div id="videoModal" aria-hidden="true">
-    test
+<div id="addVideos" hidden="true" style="margin: 5px;">
+    <script lang="javascript">
+        $(document).ready(function() {
+            var loc = window.location.origin + '/api/addSource';
+            $('#addVideos form').attr('action', loc);
+        });
+    </script>
+    <form method="post">
+        <input type="hidden" value="video" name="type">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" id="name" type="text" value="Name" name="name" onfocus="$('#addVideos #name').select();" />
+        </div>
+        <div>
+            <label onclick="$('#addVideos #sambaOptions').attr('hidden', 'hidden'); $('#addVideos #localServer').prop('checked', true);">
+                <input id="localServer" type="radio" value="local" name="server" onclick="$('#addVideos #sambaOptions').attr('hidden', 'hidden');" checked />
+                Local
+            </label>
+        </div>
+        <div>
+            <label onclick="$('#addVideos #sambaOptions').removeAttr('hidden'); $('#addVideos #sambaServer').prop('checked', true);">
+                <input id="sambaServer" type="radio" value="samba" name="server" onclick="$('#addVideos #sambaOptions').removeAttr('hidden');" />
+                Samba
+            </label>
+        </div>
+        <div id="sambaOptions" hidden="hidden">
+            <div class="form-group">
+                <label for="ip">IP</label>
+                <input class="form-control" id="ip" type="text" value="IP" name="ip" onfocus="$('#addVideos #sambaOptions #ip').select();" />
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" id="username" type="text" value="Username" name="username" onfocus="$('#addVideos #sambaOptions #username').select();">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" id="password" type="password" value="Password" name="password" onfocus="$('#addVideos #sambaOptions #password').select();">
+            </div>
+            <div class="form-group">
+                <label for="share">Share</label>
+                <input class="form-control" id="share" type="text" value="Share" name="share" onfocus="$('#addVideos #sambaOptions #share').select();">
+            </div>
+        </div>
+        <input type="submit" value="OK">
+    </form>
+</div>
+
+<div id="addPhotos" hidden="true">
+    <script lang="javascript">
+        $(document).ready(function() {
+            var loc = window.location.origin + '/api/addSource';
+            $('#addPhotos form').attr('action', loc);
+        });
+    </script>
+    <form method="post">
+        <input type="hidden" value="photo" name="type">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" id="name" type="text" value="Name" name="name" onfocus="$('#name').select();" />
+        </div>
+        <div>
+            <label onclick="$('#addPhotos #sambaOptions').attr('hidden', 'hidden'); $('#addPhotos #localServer').prop('checked', true);">
+                <input id="localServer" type="radio" value="local" name="server" onclick="$('#addPhotos #sambaOptions').attr('hidden', 'hidden');" checked />
+                Local
+            </label>
+        </div>
+        <div>
+            <label onclick="$('#addPhotos #sambaOptions').removeAttr('hidden'); $('#addPhotos #sambaServer').prop('checked', true);">
+                <input id="sambaServer" type="radio" value="samba" name="server" onclick="$('#addPhotos #sambaOptions').removeAttr('hidden');" />
+                Samba
+            </label>
+        </div>
+        <div id="sambaOptions" hidden="hidden">
+            <div class="form-group">
+                <label for="ip">IP</label>
+                <input class="form-control" id="ip" type="text" value="IP" name="ip" onfocus="$('#addPhotos #sambaOptions #ip').select();" />
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" id="username" type="text" value="Username" name="username" onfocus="$('#addPhotos #sambaOptions #username').select();">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" id="password" type="password" value="Password" name="password" onfocus="$('#addPhotos #sambaOptions #password').select();">
+            </div>
+            <div class="form-group">
+                <label for="share">Share</label>
+                <input class="form-control" id="share" type="text" value="Share" name="share" onfocus="$('#addPhotos #sambaOptions #share').select();">
+            </div>
+        </div>
+        <input type="submit" value="OK">
+    </form>
+</div>
+
+<div id="addMusic" hidden="true">
+    <script lang="javascript">
+        $(document).ready(function() {
+            var loc = window.location.origin + '/api/addSource';
+            $('#addMusic form').attr('action', loc);
+        });
+    </script>
+    <form method="post">
+        <input type="hidden" value="music" name="type">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" id="name" type="text" value="Name" name="name" onfocus="$('#addMusci #name').select();" />
+        </div>
+        <div>
+            <label onclick="$('#addMusic #sambaOptions').attr('hidden', 'hidden'); $('#addMusic #localServer').prop('checked', true);">
+                <input id="localServer" type="radio" value="local" name="server" onclick="$('#addMusic #sambaOptions').attr('hidden', 'hidden');" checked />
+                Local
+            </label>
+        </div>
+        <div>
+            <label onclick="$('#addMusic #sambaOptions').removeAttr('hidden'); $('#addMusic #sambaServer').prop('checked', true);">
+                <input id="sambaServer" type="radio" value="samba" name="server" onclick="$('#addMusic #sambaOptions').removeAttr('hidden');" />
+                Samba
+            </label>
+        </div>
+        <div id="sambaOptions" hidden="hidden">
+            <div class="form-group">
+                <label for="ip">IP</label>
+                <input class="form-control" id="ip" type="text" value="IP" name="ip" onfocus="$('#addMusic #sambaOptions #ip').select();" />
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" id="username" type="text" value="Username" name="username" onfocus="$('#addMusic #sambaOptions #username').select();">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" id="password" type="password" value="Password" name="password" onfocus="$('#addMusci #sambaOptions #password').select();">
+            </div>
+            <div class="form-group">
+                <label for="share">Share</label>
+                <input class="form-control" id="share" type="text" value="Share" name="share" onfocus="$('#addMusic #sambaOptions #share').select();">
+            </div>
+        </div>
+        <input type="submit" value="OK">
+    </form>
 </div>
