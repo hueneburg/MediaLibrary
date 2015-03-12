@@ -34,7 +34,7 @@
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
-                        <li id="Home" class="active" onclick="navbarClick($, document, 'Home')"><a href="#">Home</a></li>
+                        <li id="Home" class="active" onclick="navbarClick($, document, 'Home'); $.post(location.protocol + '//' + location.host + '/api/getSources', {server:'movies'});"><a href="#">Home</a></li>
                         <li id="Movies" onclick="navbarClick($, document, 'Movies')"><a href="#">Movies</a></li>
                         <li id="Photos" onclick="navbarClick($, document, 'Photos')"><a href="#">Photos</a></li>
                         <li id="Music" onclick="navbarClick($, document, 'Music')"><a href="#">Music</a></li>

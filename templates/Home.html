@@ -2,7 +2,7 @@
 <a href="#" onclick="if (!($('#addPhotos').attr('hidden') == undefined || $('#addVideos').attr('hidden') == false)) { $('#addVideos').attr('hidden', 'hidden'); $('#addPhotos').removeAttr('hidden'); $('#addMusic').attr('hidden', 'hidden') } else { $('#addPhotos').attr('hidden', 'hidden') };">Add Photo Source</a><br>
 <a href="#" onclick="if (!($('#addMusic').attr('hidden') == undefined || $('#addMusic').attr('hidden') == false)) { $('#addVideos').attr('hidden', 'hidden'); $('#addPhotos').attr('hidden', 'hidden'); $('#addMusic').removeAttr('hidden') } else { $('#addMusic').attr('hidden', 'hidden') };">Add Music Source</a>
 
-<div id="addVideos" hidden="true" style="margin: 5px;">
+<div id="addVideos" hidden="hidden" style="margin: 5px;">
     <script lang="javascript">
         $(document).ready(function() {
             var loc = window.location.origin + '/api/addSource';
@@ -27,7 +27,7 @@
                 Samba
             </label>
         </div>
-        <div id="sambaOptions" hidden="hidden">
+        <div id="sambaOptions" hidden="hidden" style="border: solid; border-color: #AAAAAA; border-width: 1px; border-radius: 5px; margin: 5px; padding: 5px; margin-bottom: 10px;">
             <div class="form-group">
                 <label for="ip">IP</label>
                 <input class="form-control" id="ip" type="text" value="IP" name="ip" onfocus="$('#addVideos #sambaOptions #ip').select();" />
@@ -45,11 +45,15 @@
                 <input class="form-control" id="share" type="text" value="Share" name="share" onfocus="$('#addVideos #sambaOptions #share').select();">
             </div>
         </div>
+        <div style="margin-bottom: 5px;">
+            <label for="path">Path</label>
+            <input class="form-control" id="path" type="text" value="Path" name="path" onfocus="('#addVideos #name').select();" />
+        </div>
         <input type="submit" value="OK">
     </form>
 </div>
 
-<div id="addPhotos" hidden="true">
+<div id="addPhotos" hidden="hidden" style="margin: 5px;">
     <script lang="javascript">
         $(document).ready(function() {
             var loc = window.location.origin + '/api/addSource';
@@ -74,7 +78,7 @@
                 Samba
             </label>
         </div>
-        <div id="sambaOptions" hidden="hidden">
+        <div id="sambaOptions" hidden="hidden" style="border: solid; border-color: #AAAAAA; border-width: 1px; border-radius: 5px; margin: 5px; padding: 5px; margin-bottom: 10px;">
             <div class="form-group">
                 <label for="ip">IP</label>
                 <input class="form-control" id="ip" type="text" value="IP" name="ip" onfocus="$('#addPhotos #sambaOptions #ip').select();" />
@@ -92,11 +96,15 @@
                 <input class="form-control" id="share" type="text" value="Share" name="share" onfocus="$('#addPhotos #sambaOptions #share').select();">
             </div>
         </div>
+        <div style="margin-bottom: 5px;">
+            <label for="path">Path</label>
+            <input class="form-control" id="path" type="text" value="Path" name="path" onfocus="('#addPhotos #name').select();" />
+        </div>
         <input type="submit" value="OK">
     </form>
 </div>
 
-<div id="addMusic" hidden="true">
+<div id="addMusic" hidden="hidden" style="margin: 5px;">
     <script lang="javascript">
         $(document).ready(function() {
             var loc = window.location.origin + '/api/addSource';
@@ -121,7 +129,7 @@
                 Samba
             </label>
         </div>
-        <div id="sambaOptions" hidden="hidden">
+        <div id="sambaOptions" hidden="hidden" style="border: solid; border-color: #AAAAAA; border-width: 1px; border-radius: 5px; margin: 5px; padding: 5px; margin-bottom: 10px;">
             <div class="form-group">
                 <label for="ip">IP</label>
                 <input class="form-control" id="ip" type="text" value="IP" name="ip" onfocus="$('#addMusic #sambaOptions #ip').select();" />
@@ -138,6 +146,10 @@
                 <label for="share">Share</label>
                 <input class="form-control" id="share" type="text" value="Share" name="share" onfocus="$('#addMusic #sambaOptions #share').select();">
             </div>
+        </div>
+        <div style="margin-bottom: 5px;">
+            <label for="path">Path</label>
+            <input class="form-control" id="path" type="text" value="Path" name="path" onfocus="('#addMusic #name').select();" />
         </div>
         <input type="submit" value="OK">
     </form>
